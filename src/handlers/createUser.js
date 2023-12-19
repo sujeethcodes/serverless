@@ -1,3 +1,5 @@
+
+require("dotenv").config();
 const User = require("../models/userModel")
 
 module.exports.handler = async(event, context)=>{
