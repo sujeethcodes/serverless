@@ -1,9 +1,16 @@
 service: serverlessCrud
 frameworkVersion: "3"
+custom:
+  serverless-offline:
+    httpPort: 4000
+    websocketPort: 4001
+    lambdaPort: 4002
+    albPort: 4003
 
 provider:
   name: aws
   runtime: nodejs16.x
+  stage: ${opt:stage, 'Dev'}
 
 functions:
   createUser:
