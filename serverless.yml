@@ -1,5 +1,6 @@
-service: serverlessCrud
+service: serverlesscrud
 frameworkVersion: "3"
+
 custom:
   serverless-offline:
     httpPort: 4000
@@ -22,3 +23,4 @@ functions:
 
 plugins:
   - serverless-offline
+  - serverless-dotenv-plugin
