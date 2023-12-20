@@ -1,6 +1,9 @@
 const User = require("../models/user")
+const helperUtils = require("../utils/helper")
+const validation = require("../validation/joi")
 
-module.exports.handler = async(event, context)=>{
+
+module.exports.createUser = async(event, context)=>{
 
 try{
 
@@ -25,6 +28,7 @@ try{
     }
 const createUser = await User.create({
    
+    userId:helperUtils.getRandomNumber(15),
     name:name,
     industry:industry,
     role:role
@@ -43,3 +47,4 @@ return ({
 }
    
 }
+module.exports.handler 

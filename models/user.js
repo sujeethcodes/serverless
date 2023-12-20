@@ -10,6 +10,10 @@ const User = DB.define(
       primaryKey: true,
       allowNull: false,
     },
+    userId: {
+      field: "userId",
+      type: Sequelize.DataTypes.INTEGER,
+    },
     name: {
       field: "name",
       type: Sequelize.DataTypes.STRING,
