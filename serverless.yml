@@ -8,7 +8,7 @@ provider:
 
 functions:
   User:
-    handler: src/handlers/user.handler
+    handler: handlers/user.createUser
     events:
       - httpApi:
           path: user
