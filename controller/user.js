@@ -1,7 +1,6 @@
 const helperUtils = require("../helper/helper");
 const validation = require("../validation/joi"); 
-
-const User = require("../models/user");
+const {dbConTest} = require("../database/db")
 
 module.exports.createUser = async (event, context) => {
   try {
@@ -12,28 +11,23 @@ module.exports.createUser = async (event, context) => {
     const roleValidation = validation.validateRole(role);
 
     if (nameValidation.error || industryValidation.error || roleValidation.error) {
-      return {
-        statusCode: 200,
-        body: JSON.stringify({ message: "Validation error" }),
-      };
+      return helperUtils.response(400,"VALIDATION_ERROR")
     }
 
-    const createUser = await User.create({
+    let val = await dbConTest()
+
+    const createUser = await val.User.create({
       userId: helperUtils.getRandomNumber(15),
       name: name,
       industry: industry,
       role: role,
     });
 
-    return {
-      statusCode: 200,
-      body: JSON.stringify({ message: 'User created successfully' }),
-    };
+    return helperUtils.response(200,"USER_CREATED_SUCCESSFULLY")
   } catch (err) {
     console.error(err);
-    return {
-      statusCode: 401,
-      body: JSON.stringify({ message: 'Error creating user' }),
-    };
+    return helperUtils.response(400,"ERROR_CREATING_USER")
   }
 };
+
+
