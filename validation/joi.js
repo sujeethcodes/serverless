@@ -1,16 +1,11 @@
 const Joi = require("joi");
 
-const validation = {};
+const validateName = (name) => Joi.object({ name: Joi.string().required() }).validate({ name });
+const validateIndustry = (industry) => Joi.object({ industry: Joi.string().required() }).validate({ industry });
+const validateRole = (role) => Joi.object({ role: Joi.string().required() }).validate({ role });
 
-validation.name = Joi.object().keys({
-  name: Joi.string().required(),
-});
-
-validation.industry = Joi.object().keys({
-    industry: Joi.string().required(),
-});
-
-validation.role = Joi.object().keys({
-    role: Joi.string().required(),
-});
-module.exports = validation;
+module.exports = {
+  validateName,
+  validateIndustry,
+  validateRole,
+};
