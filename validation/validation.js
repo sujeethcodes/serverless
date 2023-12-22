@@ -1,15 +1,15 @@
 const Joi = require("joi");
-const message = require("../helper/message")
-console.log(message)
+const {validationMessage} = require("../helper/message")
+
 const userValidation = Joi.object({
   name: Joi.string().required().messages({
-    'any.required': message.name,
+    'any.required': validationMessage.NAME,
   }),
   industry: Joi.string().required().messages({
-    'any.required': message.industry,
+    'any.required': validationMessage.INDUSTRY,
   }),
   role: Joi.string().required().messages({
-    'any.required': message.role,
+    'any.required': validationMessage.ROLE,
   })
 })
 

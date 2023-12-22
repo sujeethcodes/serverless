@@ -22,12 +22,10 @@ let dbConTest = async () => {
   try {
 await DB
 .authenticate()
-
   console.log("DB_CONNECTED_SUCCESSFULLY");
-  console.log(model)
   return model
 } catch (error) {
-  console.log("unable to conect", error);
+  console.log("unable to conect", error.message);
 }
 
 };

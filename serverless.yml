@@ -14,14 +14,6 @@ functions:
           method: POST
           cors: true
 
-  getAllUser:
-    handler: controller/user.getAllUser
-    events:
-      - httpApi:
-          path: user
-          method: GET
-          cors: true
-
 plugins:
   - serverless-offline
   - serverless-dotenv-plugin

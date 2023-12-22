@@ -1,13 +1,5 @@
-// const Sequelize = require("sequelize");
-// const {DB} = require("../database/db");
-// console.log(DB)
-
-
-// module.exports = User
-
-
-module.exports = (seq, DataTypes)=>{
-    return seq.define(
+module.exports = (sequelize, DataTypes)=>{
+    return sequelize.define(
         "user",
         {
           id: {
